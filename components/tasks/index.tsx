@@ -46,9 +46,9 @@ const mockTasks = [
 
 export function Tasks() {
   return (
-    <div className="mx-auto mt-20 flex w-full max-w-[800px] overflow-hidden">
+    <div className="mx-auto mt-10 flex w-full max-w-[680px] overflow-hidden">
       <ScrollArea className="w-full">
-        <ul className="flex flex-col gap-y-4">
+        <ul className="flex flex-col gap-y-2">
           {mockTasks.map((task) => (
             <li key={task.id}>
               <TasksItem />
