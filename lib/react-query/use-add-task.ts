@@ -13,10 +13,12 @@ export function useAddTask() {
       queryClient.setQueryData(
         queryKeys.tasks.list,
         (old: Array<Task> | undefined) => {
+          const createdAt = new Date();
+          const newTask = { id: 0, title: dto.title, done: false, createdAt };
           if (!old) {
-            return [{ id: 0, title: dto.title, done: false }];
+            return [newTask];
           }
-          return [{ id: 0, title: dto.title, done: false }, ...old];
+          return [newTask, ...old];
         },
       );
     },
