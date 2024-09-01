@@ -1,4 +1,4 @@
-import { AddNewTask } from "@/components/add-new-task";
+import { AddNewTaskForm } from "@/components/add-new-task-form";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Tasks } from "@/components/tasks";
 
@@ -9,7 +9,7 @@ export default function Home() {
         <ModeToggle />
       </div>
       <h1 className="text-5xl font-bold text-primary">TODO</h1>
-      <AddNewTask />
+      <AddNewTaskForm />
       <Tasks />
     </main>
   );

@@ -1,57 +1,29 @@
+"use client";
+
+import useTasks from "@/lib/react-query/use-tasks";
 import { ScrollArea } from "../ui/scroll-area";
 import TasksItem from "./tasks-item";
-
-const mockTasks = [
-  {
-    id: 1,
-    title: "Task 1",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "Task 2",
-    completed: true,
-  },
-  {
-    id: 3,
-    title: "Task 3",
-    completed: false,
-  },
-  {
-    id: 4,
-    title: "Task 3",
-    completed: false,
-  },
-  {
-    id: 5,
-    title: "Task 3",
-    completed: false,
-  },
-  {
-    id: 6,
-    title: "Task 3",
-    completed: false,
-  },
-  {
-    id: 7,
-    title: "Task 3",
-    completed: false,
-  },
-  {
-    id: 8,
-    title: "Task 3",
-    completed: false,
-  },
-];
+import { TasksSkeleton } from "./tasks-skeleton";
 
 export function Tasks() {
+  const { data, isLoading, error } = useTasks();
+
+  console.log(error);
+
   return (
     <div className="mx-auto mt-10 flex w-full max-w-[680px] overflow-hidden">
       <ScrollArea className="w-full">
         <ul className="flex flex-col gap-y-2">
-          {mockTasks.map((task) => (
+          {isLoading &&
+            new Array(5).fill(null).map((_, index) => (
+              <li key={index}>
+                <TasksSkeleton />
+              </li>
+            ))}
+
+          {data?.map((task) => (
             <li key={task.id}>
-              <TasksItem />
+              <TasksItem task={task} />
             </li>
           ))}
         </ul>
