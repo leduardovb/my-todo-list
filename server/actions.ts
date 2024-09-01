@@ -11,6 +11,11 @@ export type CheckTaskDTO = {
   done: boolean;
 };
 
+export type UpdateTaskDTO = {
+  taskId: number;
+  task: string;
+};
+
 export async function addNewTask(dto: AddNewTaskDTO) {
   return db.task.create({
     data: {
@@ -35,13 +40,13 @@ export async function deleteTask(taskId: number) {
   });
 }
 
-export async function updateTask(taskId: number, task: string) {
+export async function updateTask(dto: UpdateTaskDTO) {
   return db.task.update({
     where: {
-      id: taskId,
+      id: dto.taskId,
     },
     data: {
-      title: task,
+      title: dto.task,
     },
   });
 }
