@@ -17,7 +17,7 @@ export type UpdateTaskDTO = {
 };
 
 export async function addNewTask(dto: AddNewTaskDTO) {
-  return db.task.create({
+  return await db.task.create({
     data: {
       title: dto.title,
     },
@@ -25,7 +25,7 @@ export async function addNewTask(dto: AddNewTaskDTO) {
 }
 
 export async function getAllTasks() {
-  return db.task.findMany({
+  return await db.task.findMany({
     orderBy: {
       createdAt: "desc",
     },
@@ -33,7 +33,7 @@ export async function getAllTasks() {
 }
 
 export async function deleteTask(taskId: string) {
-  return db.task.delete({
+  return await db.task.delete({
     where: {
       id: taskId,
     },
@@ -41,7 +41,7 @@ export async function deleteTask(taskId: string) {
 }
 
 export async function updateTask(dto: UpdateTaskDTO) {
-  return db.task.update({
+  return await db.task.update({
     where: {
       id: dto.taskId,
     },
@@ -52,7 +52,7 @@ export async function updateTask(dto: UpdateTaskDTO) {
 }
 
 export async function checkTask(dto: CheckTaskDTO) {
-  return db.task.update({
+  return await db.task.update({
     where: {
       id: dto.taskId,
     },
