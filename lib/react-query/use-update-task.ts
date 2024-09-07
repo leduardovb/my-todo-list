@@ -1,6 +1,6 @@
 "use client";
 
-import { updateTask } from "@/server/actions";
+import { updateTask } from "@/app/actions";
 import { Task } from "@prisma/client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "./query-keys";

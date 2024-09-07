@@ -8,6 +8,14 @@ import { TasksSkeleton } from "./tasks-skeleton";
 export function Tasks() {
   const { data, isLoading, error } = useTasks();
 
+  if (error) {
+    return (
+      <div className="mx-auto mt-10 flex w-full justify-center overflow-hidden md:max-w-[680px]">
+        <h3 className="text-lg font-bold">Error on list taks</h3>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto mt-10 flex w-full overflow-hidden md:max-w-[680px]">
       <ScrollArea className="flex w-full">

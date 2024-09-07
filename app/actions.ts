@@ -7,12 +7,12 @@ export type AddNewTaskDTO = {
 };
 
 export type CheckTaskDTO = {
-  taskId: number;
+  taskId: string;
   done: boolean;
 };
 
 export type UpdateTaskDTO = {
-  taskId: number;
+  taskId: string;
   task: string;
 };
 
@@ -32,7 +32,7 @@ export async function getAllTasks() {
   });
 }
 
-export async function deleteTask(taskId: number) {
+export async function deleteTask(taskId: string) {
   return db.task.delete({
     where: {
       id: taskId,

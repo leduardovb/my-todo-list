@@ -7,7 +7,7 @@ import { useCheckTask } from "@/lib/react-query/use-check-task";
 import { CheckedState } from "@radix-ui/react-checkbox";
 
 interface Props {
-  taskId: number;
+  taskId: string;
   isDone: boolean;
 }
 

@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { queryKeys } from "./query-keys";
-import { getAllTasks } from "@/server/actions";
+import { getAllTasks } from "@/app/actions";
 
 export default function useTasks() {
   const query = useQuery({

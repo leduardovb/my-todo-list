@@ -1,4 +1,4 @@
-import { checkTask } from "@/server/actions";
+import { checkTask } from "@/app/actions";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { queryKeys } from "./query-keys";
 import { Task } from "@prisma/client";
